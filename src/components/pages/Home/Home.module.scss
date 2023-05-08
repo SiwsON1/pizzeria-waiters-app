@@ -1,0 +1,13 @@
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.header{
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  margin: 20px 0px;
+}
