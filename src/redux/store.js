@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import initialState from './initialState';
 import tablesReducer from './tablesRedux';
 import statusReducer from './statusRedux';
+import loadingReducer from './loadingReducer';
 
 const subreducers = {
   
 tables: tablesReducer,
 status: statusReducer,
+loading: loadingReducer,
 
 }
 

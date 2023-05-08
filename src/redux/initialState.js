@@ -8,6 +8,8 @@ const initialState = {
     "Free",
     "Cleaning"
   ],
-  isLoading: false,
+  loading: {
+    isLoading: true
+  }
 }
 export default initialState;

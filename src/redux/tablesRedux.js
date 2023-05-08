@@ -1,4 +1,9 @@
+
+import { API_URL } from "../config";
+import { setLoading } from "./loadingReducer";
+
 //selectors
+
 export const getAllTables = ({ tables }) => tables;
 export const getTableById = ({ tables }, tableId) => tables.find(table => table.id === tableId);
 
@@ -15,15 +20,17 @@ export const updateTables = payload => ({ type: UPDATE_TABLES, payload });
 export const editTable = payload => ({ type: EDIT_TABLE, payload });
 
 
-export const fetchTables = () =>{
-  return (dispatch) =>{
-
-  fetch('http://localhost:3131/api/tables')
-  .then(res =>res.json())
-  .then(tables => dispatch(updateTables(tables)));
-  }
-}
-
+export const fetchTables = () => {
+  return (dispatch) => {
+    dispatch(setLoading(true));
+    fetch(`${API_URL}/tables`)
+      .then(res => res.json())
+      .then(tables => {
+        dispatch(updateTables(tables));
+        dispatch(setLoading(false));
+      });
+  };
+};
 export const editTableRequest = (table) =>{
 return (dispatch) => {
   const options = {
@@ -39,7 +46,7 @@ return (dispatch) => {
       bill: table.bill,
     })
   };
-  fetch(`http://localhost:3131/tables/${table.id}`, options)
+  fetch(`${API_URL}/tables/${table.id}`, options)
   .then(() => dispatch(editTable(table)))
 }
 }

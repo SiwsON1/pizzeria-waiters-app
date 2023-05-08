@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { getAllStatus } from '../../../redux/statusRedux';
 import styles from './TableForm.module.scss';
 import { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 const TableForm = ({ action, actionText, ...props }) => {
 
@@ -114,5 +115,13 @@ const TableForm = ({ action, actionText, ...props }) => {
   );
 };
 
+TableForm.propTypes = {
+  action: PropTypes.func.isRequired,
+  actionText: PropTypes.string.isRequired,
+  peopleAmount: PropTypes.number,
+  maxPeopleAmount: PropTypes.number,
+  status: PropTypes.string,
+  bill: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+};
 
 export default TableForm;

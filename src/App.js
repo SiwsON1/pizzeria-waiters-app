@@ -10,23 +10,29 @@ import { useEffect } from 'react';
 import { fetchTables, getFetchTablesLoading } from './redux/tablesRedux';
 import { useSelector } from 'react-redux';
 import Spinner from 'react-bootstrap/Spinner';
+import { getLoading } from './redux/loadingReducer';
 
 function App() {
   const dispatch = useDispatch();
- 
+
+  const isLoading = useSelector(getLoading); 
 
   useEffect(() => {
     dispatch(fetchTables());
   }, [dispatch]);
 
+
+
   return (
     <Container>
       <Header />
+      {isLoading ? <div style={{ textAlign: 'center', fontSize: '46px', padding: '16px', color:'green' }}>Loading...</div> : (
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/table/:id" element={<Table />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+      )}
       <Footer />
     </Container>
   );
