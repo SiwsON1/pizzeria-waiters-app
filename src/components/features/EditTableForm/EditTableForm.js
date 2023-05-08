@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { editTable, editTableRequest, getTableById } from '../../../redux/tablesRedux';
+import { editTableRequest, getTableById } from '../../../redux/tablesRedux';
 import TableForm from '../TableForm/TableForm';
 
 const EditTableForm = () => {

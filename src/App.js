@@ -7,9 +7,8 @@ import Header from './components/views/Header/Header';
 import Footer from './components/views/Footer/Footer';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { fetchTables, getFetchTablesLoading } from './redux/tablesRedux';
+import { fetchTables} from './redux/tablesRedux';
 import { useSelector } from 'react-redux';
-import Spinner from 'react-bootstrap/Spinner';
 import { getLoading } from './redux/loadingReducer';
 
 function App() {
